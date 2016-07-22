@@ -31,6 +31,7 @@ module.exports = function(config) {
       'bower_components/jquery-1.12.3/index.js',
       'bower_components/jszip/dist/jszip.js',
       'bower_components/devextreme/js/dx.all.js',
+      'bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',

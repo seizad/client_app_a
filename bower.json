@@ -9,7 +9,13 @@
     "angular-route": "^1.4.0",
     "angular-sanitize": "^1.4.0",
     "angular-touch": "^1.4.0",
-    "devextreme": "~16.1.4"
+    "devextreme": "~16.1.4",
+    "bootstrap-sass": "~3.3.6"
+  },
+  "overrides": {
+    "bootstrap-sass": {
+      "main": ["assets/javascripts/bootstrap.js"]
+    }
   },
   "devDependencies": {
     "angular-mocks": "^1.4.0"
