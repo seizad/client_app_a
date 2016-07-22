@@ -2,23 +2,23 @@
 
 /**
  * @ngdoc function
- * @name sampleApp4App.controller:MainCtrl
+ * @name sampleApp4App.controller:JobSearchCtrl
  * @description
- * # MainCtrl
+ * # JobSearchCtrl
  * Controller of the sampleApp4App
  */
 angular.module('sampleApp4App')
-  .controller('MainCtrl', function ($scope, $http, jobsService) {
-    var ds = new DevExpress.data.CustomStore({
-          load: function (loadOptions) {
-            return jobsService.get(loadOptions);
-          },
-          totalCount: function(){
-            return 5;
-          }
-      });
+  .controller('JobSearchCtrl', function ($scope, $http, jobsService) {
+    // var ds = new DevExpress.data.CustomStore({
+    //       load: function (loadOptions) {
+    //         return jobsService.get(loadOptions);
+    //       },
+    //       totalCount: function(){
+    //         return 5;
+    //       }
+    //   });
 
-    // var ds = jobs_local_data;
+    var ds = jobs_local_data;
 
     $scope.jobsGrid = {
       columns: [
@@ -41,9 +41,15 @@ angular.module('sampleApp4App')
       showRowLines: true,
       rowAlternationEnabled: true,
       sorting: { mode: 'multiple' },
-      groupPanel: { visible: true, emptyPanelText: 'Drag a column header here to group grid records' },
-      pager: { visible: true },
-      paging: { pageSize: 9 },
+      groupPanel: { 
+        visible: true, 
+        emptyPanelText: 'Drag a column header here to group grid records' 
+      },
+      pager: { 
+        visible: true,
+        allowedPageSizes: [10, 15, 20],
+        showPageSizeSelector: true
+      },
       // filterRow: { visible: true },
       // searchPanel: { visible: true },
       selection: { mode: 'none' },
