@@ -1,9 +1,14 @@
 {
 	"TP_JobsGrid_TaskId":"Task Id",
 	"TP_JobsGrid_TaskDescription": "Description",
-	"CP_JobsGrid_TaskId": "Job#",
-	"CP_JopsGrid_TaskDescription":"Detail",
+	"CP_JobsGrid_TaskNumber": "Job#",
 	"CP_JobsGrid_CustomerCode": "Customer#",
 	"CP_JobsGrid_CompanyName": "Customer Name",
-	"CP_JobsGrid_TechnicianCode": "Technician#"
+	"CP_JobsGrid_TaskCreatedDateTime": "Submitted Date",
+	"CP_JobsGrid_TaskScheduledDateTime": "Scheduled Date",
+	"CP_JobsGrid_TaskPriorityDescription": "Priority",
+	"CP_JobsGrid_TaskStatusCode": "Status",
+	"CP_JobsGrid_EquipmentId": "Unit#",
+	"CP_JobsGrid_TechnicianCode": "Technician#",
+	"CP_JobsGrid_TechnicianName": "Technician"
 }

@@ -23,16 +23,16 @@ angular.module('sampleApp4App')
           visible: true
         },
         columns: [
-          { dataField: 'TaskNumber',          caption: locale.getString('common.CP_JobsGrid_TaskId') },
-          { dataField: 'CustomerCode',        caption: locale.getString('common.CP_JobsGrid_CustomerCode')},
-          { dataField: 'CompanyName',         caption: locale.getString('common.CP_JobsGrid_CompanyName')},
-          { dataField: 'TaskCreatedDateTime', caption: 'Submitted Date', dataType: 'date', format: 'shortDateShortTime'},
-          { dataField: 'TaskScheduledDateTime',   caption: 'Scheduled Date', dataType: 'date', format: 'shortDateShortTime' },
-          { dataField: 'TaskPriorityDescription', caption: 'Priority' },
-          { dataField: 'TaskStatusCode',      caption: 'Status' },
-          { dataField: 'EquipmentId',         caption: 'Unit ID' },
-          { dataField: 'TechnicianCode',      caption: locale.getString('common.CP_JobsGrid_TechnicianCode')},
-          { dataField: 'TechnicianName',      caption: 'Technician'}
+          { dataField: 'TaskNumber',          caption: locale.getString('common.CP_JobsGrid_TaskNumber') },
+          { dataField: 'CustomerCode',        caption: locale.getString('common.CP_JobsGrid_CustomerCode') },
+          { dataField: 'CompanyName',         caption: locale.getString('common.CP_JobsGrid_CompanyName') },
+          { dataField: 'TaskCreatedDateTime', caption: locale.getString('common.CP_JobsGrid_TaskCreatedDateTime'), dataType: 'date', format: 'shortDateShortTime'},
+          { dataField: 'TaskScheduledDateTime',   caption: locale.getString('common.CP_JobsGrid_TaskScheduledDateTime'), dataType: 'date', format: 'shortDateShortTime' },
+          { dataField: 'TaskPriorityDescription', caption: locale.getString('common.CP_JobsGrid_TaskPriorityDescription') },
+          { dataField: 'TaskStatusCode',      caption: locale.getString('common.CP_JobsGrid_TaskStatusCode') },
+          { dataField: 'EquipmentId',         caption: locale.getString('common.CP_JobsGrid_EquipmentId') },
+          { dataField: 'TechnicianCode',      caption: locale.getString('common.CP_JobsGrid_TechnicianCode') },
+          { dataField: 'TechnicianName',      caption: locale.getString('common.CP_JobsGrid_TechnicianName') }
         ],
         stateStoring: {
           enabled: true,
