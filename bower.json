@@ -10,11 +10,14 @@
     "angular-sanitize": "^1.4.0",
     "angular-touch": "^1.4.0",
     "devextreme": "~16.1.4",
-    "bootstrap-sass": "~3.3.6"
+    "bootstrap-sass": "~3.3.6",
+    "angular-localization": "~1.2.1"
   },
   "overrides": {
     "bootstrap-sass": {
-      "main": ["assets/javascripts/bootstrap.js"]
+      "main": [
+        "assets/javascripts/bootstrap.js"
+      ]
     }
   },
   "devDependencies": {

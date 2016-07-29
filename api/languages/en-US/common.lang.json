@@ -1,0 +1,9 @@
+{
+	"TP_JobsGrid_TaskId":"Task Id",
+	"TP_JobsGrid_TaskDescription": "Description",
+	"CP_JobsGrid_TaskId": "Job#",
+	"CP_JopsGrid_TaskDescription":"Detail",
+	"CP_JobsGrid_CustomerCode": "Customer#",
+	"CP_JobsGrid_CompanyName": "Customer Name",
+	"CP_JobsGrid_TechnicianCode": "Technician#"
+}
