@@ -11,15 +11,13 @@ angular.module('sampleApp4App')
   .service('jobsService', function ($http) {
     // AngularJS will instantiate a singleton by calling "new" on this function
     
-    this.get = function(loadOptions) {
-    	var deferred = new $.Deferred();
-
-    	$http.get('/api/jobs.json')
-    	.success(function (result) {
-    	    deferred.resolve(result);
-    	}).error(function (result) {
-    	    deferred.reject(result);
-    	});
-    	return deferred.promise();
+    var API = 'http://localhost:4000';
+    this.get = function() {
+        var d = $.Deferred();
+        $http.get(API + '/api/jobs')
+          .success(function (response) {
+              d.resolve(response, { totalCount: response.length });
+          });
+        return d.promise();
     };
   });

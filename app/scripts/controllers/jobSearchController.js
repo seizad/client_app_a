@@ -9,26 +9,22 @@
  */
 angular.module('sampleApp4App')
   .controller('JobSearchCtrl', function ($scope, $http, jobsService) {
-    // var ds = new DevExpress.data.CustomStore({
-    //       load: function (loadOptions) {
-    //         return jobsService.get(loadOptions);
-    //       },
-    //       totalCount: function(){
-    //         return 5;
-    //       }
-    //   });
+    var ds = new DevExpress.data.CustomStore({
+      load: function (loadOptions) {
+        return jobsService.get();
+      }
+    });
 
-    var ds = jobs_local_data;
-
+    // body...
     $scope.jobsGrid = {
       columns: [
-        { dataField: 'jobId' ,          caption: 'Job ID'},
-        { dataField: 'jobNumber' ,      caption: 'Job Number', allowGrouping: false },
-        { dataField: 'customerName' ,   caption: 'Customer Name', sortIndex: 0, sortOrder: 'asc'},
-        { dataField: 'technicianCode' , caption: 'Technician Code', visible: false },
-        { dataField: 'technicianName' , caption: 'Technician',      visible: false,format: { type: 'longDateLongTime' },  allowGrouping: false },
-        { dataField: 'jobSubmittedDtm' ,caption: 'Submitted Date', format: { type: 'date' }, allowGrouping: false },
-        { dataField: 'jobScheduledDtm' ,caption: 'Scheduled Date' }
+        { dataField: 'TaskId' ,         caption: 'Job ID'},
+        { dataField: 'TaskNumber' ,     caption: 'Job Number', allowGrouping: false },
+        { dataField: 'CustomerCode' ,   caption: 'Customer Name', sortIndex: 0, sortOrder: 'asc'},
+        { dataField: 'TechnicianCode' , caption: 'Technician Code', visible: false },
+        { dataField: 'TechnicianName' , caption: 'Technician', visible: false, format: { type: 'longDateLongTime' },  allowGrouping: false },
+        { dataField: 'TaskCreatedDateTime' ,caption: 'Submitted Date', format: { type: 'date' }, allowGrouping: false },
+        { dataField: 'TaskScheduledDateTime' ,caption: 'Scheduled Date' }
       ],
       stateStoring: {
         enabled: true,
@@ -45,14 +41,19 @@ angular.module('sampleApp4App')
         visible: true, 
         emptyPanelText: 'Drag a column header here to group grid records' 
       },
+      remoteOperations: {
+        sorting: false
+      },
       pager: { 
         visible: true,
         allowedPageSizes: [10, 15, 20],
         showPageSizeSelector: true
       },
-      // filterRow: { visible: true },
-      // searchPanel: { visible: true },
+      filterRow: { visible: true },
+      searchPanel: { visible: true },
       selection: { mode: 'none' },
-      dataSource: ds
-    }
+      dataSource: {
+        store: ds
+      }
+    };
   });
