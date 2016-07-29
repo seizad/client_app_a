@@ -21,16 +21,16 @@ angular.module('sampleApp4App')
         visible: true
       },
       columns: [
-        { dataField: 'TaskNumber',     caption: 'Job Number'},
-        { dataField: 'CustomerCode',   caption: 'Customer Name'},
-        { dataField: 'CompanyName',   caption: 'Customer Name'},
-        { dataField: 'TaskCreatedDateTime', caption: 'Submitted Date'},
-        { dataField: 'TaskScheduledDateTime', caption: 'Scheduled Date' },
+        { dataField: 'TaskNumber',          caption: 'Job Number'},
+        { dataField: 'CustomerCode',        caption: 'Customer Name'},
+        { dataField: 'CompanyName',         caption: 'Customer Name'},
+        { dataField: 'TaskCreatedDateTime', caption: 'Submitted Date', dataType: 'date', format: 'shortDateShortTime'},
+        { dataField: 'TaskScheduledDateTime',   caption: 'Scheduled Date', dataType: 'date', format: 'shortDateShortTime' },
         { dataField: 'TaskPriorityDescription', caption: 'Priority' },
-        { dataField: 'TaskStatusCode', caption: 'Status' },
-        { dataField: 'EquipmentId', caption: 'Unit ID' },
-        { dataField: 'TechnicianCode', caption: 'Technician Code'},
-        { dataField: 'TechnicianName', caption: 'Technician'}
+        { dataField: 'TaskStatusCode',      caption: 'Status' },
+        { dataField: 'EquipmentId',         caption: 'Unit ID' },
+        { dataField: 'TechnicianCode',      caption: 'Technician Code'},
+        { dataField: 'TechnicianName',      caption: 'Technician'}
       ],
       stateStoring: {
         enabled: true,
