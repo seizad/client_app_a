@@ -17,14 +17,20 @@ angular.module('sampleApp4App')
 
     // body...
     $scope.jobsGrid = {
+      headerFilter: {
+        visible: true
+      },
       columns: [
-        { dataField: 'TaskId' ,         caption: 'Job ID'},
-        { dataField: 'TaskNumber' ,     caption: 'Job Number', allowGrouping: false },
-        { dataField: 'CustomerCode' ,   caption: 'Customer Name', sortIndex: 0, sortOrder: 'asc'},
-        { dataField: 'TechnicianCode' , caption: 'Technician Code', visible: false },
-        { dataField: 'TechnicianName' , caption: 'Technician', visible: false, format: { type: 'longDateLongTime' },  allowGrouping: false },
-        { dataField: 'TaskCreatedDateTime' ,caption: 'Submitted Date', format: { type: 'date' }, allowGrouping: false },
-        { dataField: 'TaskScheduledDateTime' ,caption: 'Scheduled Date' }
+        { dataField: 'TaskNumber',     caption: 'Job Number'},
+        { dataField: 'CustomerCode',   caption: 'Customer Name'},
+        { dataField: 'CompanyName',   caption: 'Customer Name'},
+        { dataField: 'TaskCreatedDateTime', caption: 'Submitted Date'},
+        { dataField: 'TaskScheduledDateTime', caption: 'Scheduled Date' },
+        { dataField: 'TaskPriorityDescription', caption: 'Priority' },
+        { dataField: 'TaskStatusCode', caption: 'Status' },
+        { dataField: 'EquipmentId', caption: 'Unit ID' },
+        { dataField: 'TechnicianCode', caption: 'Technician Code'},
+        { dataField: 'TechnicianName', caption: 'Technician'}
       ],
       stateStoring: {
         enabled: true,
