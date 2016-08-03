@@ -1,0 +1,98 @@
+"equipment": [
+	{
+		"CustomerId": 3,
+		"CustomerCode": "AIR001",
+		"CustomerName": "Airforce Base Inc.",
+		"MachineId": 82,
+		"MachineSerialNumber": "A9641531556",
+		"MachineUnitNumber": "A894132156",
+		"MachineLocation": "here",
+		"MachineDescription": "Standard",
+		"MachineIpAddress": "aa",
+		"ModelId": 30,
+		"ModelClass": "Segment 3",
+		"ModelNumber": "A19573512",
+		"ModelClassAndNumber": "Segment 3 / A19573512",
+		"ModelDescription": "Standard",
+		"MachineManufacturer": "ABC Manufacturing",
+		"PmDays": 183,
+		"PmLastDt": "/Date(1205553600000)/",
+		"ServiceLastDt": "/Date(1376884800000)/",
+		"IsActive": true,
+		"IsMetered": true,
+		"PreviousWorkOrderId": 35,
+		"PreviousWorkOrderComment": null,
+		"JobCountActive": 5,
+		"PreviousJobId": 38,
+		"PreviousJobNumber": "0000035-1",
+		"PreviousJobCommentWorkPerformed": "Call Complete - additional work performed information.",
+		"MeterReadingSet": [
+			{
+				"MeterReadingId": 173,
+				"MachineId": 82,
+				"MeterId": 116,
+				"MeterReadingValue": 3015,
+				"MeterReadingDt": "/Date(1469592000000)/",
+				"MeterName": "Black",
+				"MeterLocation": "Control Panel"
+			},
+			{
+				"MeterReadingId": 174,
+				"MachineId": 82,
+				"MeterId": 117,
+				"MeterReadingValue": 164,
+				"MeterReadingDt": "/Date(1469592000000)/",
+				"MeterName": "Color",
+				"MeterLocation": "Control Panel"
+			}
+		]
+	},
+	{
+		"CustomerId": 3,
+		"CustomerCode": "AIR001",
+		"CustomerName": "Airforce Base Inc.",
+		"MachineId": 83,
+		"MachineSerialNumber": "X644328552",
+		"MachineUnitNumber": "X21654531",
+		"MachineLocation": "here",
+		"MachineDescription": "High Volume Multi Function",
+		"MachineIpAddress": "aa",
+		"ModelId": 29,
+		"ModelClass": "Segment 5",
+		"ModelNumber": "X123456987",
+		"ModelClassAndNumber": "Segment 5 / X123456987",
+		"ModelDescription": "High Volume Multi Function",
+		"MachineManufacturer": "XYZ Corporation",
+		"PmDays": 365,
+		"PmLastDt": "/Date(1200373200000)/",
+		"ServiceLastDt": "/Date(1376884800000)/",
+		"IsActive": true,
+		"IsMetered": true,
+		"PreviousWorkOrderId": 19,
+		"PreviousWorkOrderComment": null,
+		"JobCountActive": 1,
+		"PreviousJobId": 19,
+		"PreviousJobNumber": "0000019-1",
+		"PreviousJobCommentWorkPerformed": "Call Incomplete",
+		"MeterReadingSet": [
+			{
+				"MeterReadingId": 175,
+				"MachineId": 83,
+				"MeterId": 118,
+				"MeterReadingValue": 5556,
+				"MeterReadingDt": "/Date(1469592000000)/",
+				"MeterName": "Black",
+				"MeterLocation": "Control Panel"
+			},
+			{
+				"MeterReadingId": 176,
+				"MachineId": 83,
+				"MeterId": 119,
+				"MeterReadingValue": 530,
+				"MeterReadingDt": "/Date(1469592000000)/",
+				"MeterName": "Color",
+				"MeterLocation": "Control Panel"
+			}
+		]
+	}
+]

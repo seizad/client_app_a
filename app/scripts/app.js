@@ -43,6 +43,16 @@ var app = angular.module(
       .when('/about', {
         templateUrl: 'views/about.html',
       })
+      .when('/equipment', {
+        templateUrl: 'views/equipment.html',
+        controller: 'EquipmentCtrl',
+        controllerAs: 'equipment'
+      })
+      .when('/orders', {
+        templateUrl: 'views/orders.html',
+        controller: 'OrdersCtrl',
+        controllerAs: 'orders'
+      })
       .otherwise({
         redirectTo: '/'
       });

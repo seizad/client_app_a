@@ -17,13 +17,17 @@ angular.module('sampleApp4App')
         }
       });
 
+      $scope.buttonClicked = function() {
+        console.log("test");
+      };
+
       // body...
       $scope.jobsGrid = {
         headerFilter: {
           visible: true
         },
         columns: [
-          { dataField: 'TaskNumber',          caption: locale.getString('common.CP_JobsGrid_TaskNumber') },
+          { dataField: 'TaskNumber',          caption: locale.getString('common.CP_JobsGrid_TaskNumber'), visible: false},
           { dataField: 'CustomerCode',        caption: locale.getString('common.CP_JobsGrid_CustomerCode') },
           { dataField: 'CompanyName',         caption: locale.getString('common.CP_JobsGrid_CompanyName') },
           { dataField: 'TaskCreatedDateTime', caption: locale.getString('common.CP_JobsGrid_TaskCreatedDateTime'), dataType: 'date', format: 'shortDateShortTime'},
@@ -34,11 +38,11 @@ angular.module('sampleApp4App')
           { dataField: 'TechnicianCode',      caption: locale.getString('common.CP_JobsGrid_TechnicianCode') },
           { dataField: 'TechnicianName',      caption: locale.getString('common.CP_JobsGrid_TechnicianName') }
         ],
-        stateStoring: {
-          enabled: true,
-          type: "localStorage",
-          storageKey: "gridState"
-        },
+        // stateStoring: {
+        //   enabled: true,
+        //   type: "localStorage",
+        //   storageKey: "gridState"
+        // },
         columnChooser: { enabled: true },
         allowColumnReordering: true,
         allowColumnResizing: true,
@@ -54,7 +58,7 @@ angular.module('sampleApp4App')
         },
         pager: { 
           visible: true,
-          allowedPageSizes: [10, 15, 20],
+          allowedPageSizes: [10, 50, 100],
           showPageSizeSelector: true
         },
         filterRow: { visible: true },

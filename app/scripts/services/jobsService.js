@@ -20,4 +20,22 @@ angular.module('sampleApp4App')
           });
         return d.promise();
     };
+
+    this.getEquipment = function() {
+        var d = $.Deferred();
+        $http.get(API + '/api/equipment')
+          .success(function (response) {
+              d.resolve(response, { totalCount: response.length });
+          });
+        return d.promise();
+    };
+
+    this.getOrders = function() {
+        var d = $.Deferred();
+        $http.get(API + '/api/orders')
+          .success(function (response) {
+              d.resolve(response, { totalCount: response.length });
+          });
+        return d.promise();
+    };
   });
