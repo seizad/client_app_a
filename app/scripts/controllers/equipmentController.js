@@ -19,6 +19,9 @@ angular.module('sampleApp4App')
 
       // body...
       $scope.equipmentGrid = {
+        onContentReady: function(e) {
+          $scope.gridInst = e.component;
+        },
         headerFilter: {
           visible: true
         },
@@ -32,11 +35,11 @@ angular.module('sampleApp4App')
           { dataField: 'MachineSerialNumber', caption: locale.getString('common.CP_EquipGrid_MachineSerialNumber') },
           { dataField: 'ModelClassAndNumber',   caption: locale.getString('common.CP_EquipGrid_ModelClassAndNumber') },
         ],
-        // stateStoring: {
-        //   enabled: true,
-        //   type: "localStorage",
-        //   storageKey: "gridState"
-        // },
+        stateStoring: {
+          enabled: true,
+          type: "localStorage",
+          storageKey: "equipGridState"
+        },
         columnChooser: { enabled: true },
         allowColumnReordering: true,
         allowColumnResizing: true,

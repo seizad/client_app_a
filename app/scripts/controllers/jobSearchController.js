@@ -31,6 +31,9 @@ angular.module('sampleApp4App')
       ];
 
       $scope.jobsGrid = {
+        onContentReady: function(e) {
+          $scope.gridInst = e.component;
+        },
         headerFilter: {
           visible: true
         },
@@ -63,65 +66,7 @@ angular.module('sampleApp4App')
         selection: { mode: 'none' },
         dataSource: {
           store: ds
-        }
-      };
-
-
-      function gridInstance() {
-        return $('#jobsGrid').dxDataGrid('instance');
-      }
-
-      function clearFiltering() {
-        gridInstance().clearFilter();
-      }
-
-      function clearSorting() {
-        gridInstance().clearSorting();
-      }
-
-      function clearGrouping() {
-        gridInstance().clearGrouping();
-      }
-
-      var menuData = [{
-          id: 'clear',
-          name: 'Clear...',
-          items: [{
-              id: 'filters',
-              name: 'Filters'
-            }, {
-              id: 'sorting',
-              name: 'Sorting'
-            }, {
-              id: 'grouping',
-              name: 'Grouping'
-            }, {
-              id: 'all',
-              name: 'All'
-          }]
-      }];
-      
-      $scope.menuOpts = {
-        dataSource: menuData,
-        displayExpr: 'name',
-        onItemClick: function (data) {
-          switch(data.itemData.id) {
-            case 'filters':
-              clearFiltering();
-              break;
-            case 'sorting':
-              clearSorting();
-              break;
-            case 'grouping':
-              clearGrouping();
-              break;
-            case 'all':
-              clearFiltering();
-              clearSorting();
-              clearGrouping();
-              break;
-          }
-        }
+        }      
       };
     });
   });

@@ -19,6 +19,9 @@ angular.module('sampleApp4App')
 
       // body...
       $scope.ordersGrid = {
+        onContentReady: function(e) {
+          $scope.gridInst = e.component;
+        },
         headerFilter: {
           visible: true
         },
@@ -33,11 +36,11 @@ angular.module('sampleApp4App')
           { dataField: 'discountAmount', caption: locale.getString('common.CP_OrdersGrid_discountAmount'), 					format: 'currency', dataType: 'number' },
           { dataField: 'totalAmount',   caption: locale.getString('common.CP_OrdersGrid_totalAmount'), 							format: 'currency', dataType: 'number' },
         ],
-        // stateStoring: {
-        //   enabled: true,
-        //   type: "localStorage",
-        //   storageKey: "gridState"
-        // },
+        stateStoring: {
+          enabled: true,
+          type: "localStorage",
+          storageKey: "ordersGridState"
+        },
         columnChooser: { enabled: true },
         allowColumnReordering: true,
         allowColumnResizing: true,
