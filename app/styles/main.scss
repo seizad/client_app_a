@@ -53,9 +53,31 @@ body {
 
   }
 
-  .grid {
+  .gridContainer {
     padding-left: 20px;
     padding-right: 20px;
+    
+    .clearBtn {
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      -ms-border-radius: 4px;
+      -o-border-radius: 4px;
+      border-radius: 4px;
+      -webkit-box-shadow: 0 1px 3px transparent;
+      -moz-box-shadow: 0 1px 3px transparent;
+      box-shadow: 0 1px 3px transparent;
+      border-width: 1px;
+      border-style: solid;
+      border-color: #ddd;
+
+      margin: 5px 0 5px 10px;
+    }
+    > div {
+      float: right;
+    }
+  }
+
+  .grid {
     max-width:100%;
     margin: 0 auto
   }
@@ -80,23 +102,9 @@ body {
       padding-left: 0;
       padding-right: 0;
     }
-    /* Space out the masthead */
-    .header {
-      margin-bottom: 30px;
-    }
     /* Remove the bottom border on the jumbotron for visual effect */
     .jumbotron {
       border-bottom: 0;
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
