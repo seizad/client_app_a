@@ -28,21 +28,48 @@ angular.module('sampleApp4App')
         },
         displayExpr: 'disp',
         valueExpr: 'val',
-        bindingOptions: { 
-          value: 'status' 
-        },
-        placeholder: 'Select...',
         onValueChanged: function(e) {
-          if(!e.value || e.value === 'select') return;
+          if(!e.value) return;
           ds.load();
         }
       };
       $scope.status = 'open';
 
+      $scope.intervalSelOpts = {
+        items: [
+          {
+            disp: 'Interval: 30 Days',
+            val: '30'
+          }, { 
+            disp: 'Interval: 60 Days',
+            val: '60'
+          }, {
+            disp: 'Interval: 90 Days',
+            val: '90'
+          }, {
+            disp: 'Interval: 1 Year',
+            val: '365'
+          }, {
+            disp: 'Interval: 5 Years',
+            val: '1825'
+          }],
+        bindingOptions: { 
+          value: 'interval' 
+        },
+        displayExpr: 'disp',
+        valueExpr: 'val',
+        onValueChanged: function(e) {
+          if(!e.value) return;
+          ds.load();
+        }
+      };
+      $scope.interval = '30';
+
       var ds = new DevExpress.data.CustomStore({
         load: function (loadOptions) {
           loadOptions.filter = {
-            status: $scope.status
+            status: $scope.status,
+            interval: $scope.interval
           };
           return jobsService.getJobs(loadOptions);
         }
