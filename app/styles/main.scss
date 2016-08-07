@@ -60,6 +60,27 @@ body {
     > * {
       float: right;
     }
+ 
+    .gridToolbar > * {
+      float: right;
+      margin: 10px 0 10px 10px;
+
+      .clearGridMenuBtn {
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+        -o-border-radius: 4px;
+        border-radius: 4px;
+        -webkit-box-shadow: 0 1px 3px transparent;
+        -moz-box-shadow: 0 1px 3px transparent;
+        box-shadow: 0 1px 3px transparent;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #ddd;
+        line-height: 20px;
+
+      }
+    }
   }
 
   .grid {
@@ -67,21 +88,12 @@ body {
     margin: 0 auto
   }
 
-  .clearGridMenuBtn {
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    -o-border-radius: 4px;
-    border-radius: 4px;
-    -webkit-box-shadow: 0 1px 3px transparent;
-    -moz-box-shadow: 0 1px 3px transparent;
-    box-shadow: 0 1px 3px transparent;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #ddd;
-
-    margin: 5px 0 5px 10px;
+  .statusTabs {
+    width: 200px;
+    height: 30px;
   }
+
+  
 
   /* Custom page footer */
   .footer {

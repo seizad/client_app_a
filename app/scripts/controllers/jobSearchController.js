@@ -11,9 +11,40 @@ angular.module('sampleApp4App')
   .controller('JobSearchCtrl', function ($scope, $http, jobsService, locale) {
     locale.ready('common').then(function () {
 
+      $scope.statusSelOpts = {
+        items: [
+          {
+            disp: 'Status: Open',
+            val: 'open'
+          }, { 
+            disp: 'Status: Closed',
+            val: 'closed'
+          }, {
+            disp: 'Status: Any',
+            val: 'all'
+          }],
+        bindingOptions: { 
+          value: 'status' 
+        },
+        displayExpr: 'disp',
+        valueExpr: 'val',
+        bindingOptions: { 
+          value: 'status' 
+        },
+        placeholder: 'Select...',
+        onValueChanged: function(e) {
+          if(!e.value || e.value === 'select') return;
+          ds.load();
+        }
+      };
+      $scope.status = 'open';
+
       var ds = new DevExpress.data.CustomStore({
         load: function (loadOptions) {
-          return jobsService.get();
+          loadOptions.filter = {
+            status: $scope.status
+          };
+          return jobsService.getJobs(loadOptions);
         }
       });
 
