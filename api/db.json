@@ -6,6 +6,12 @@
     { "id": 1, "body": "some comment", "postId": 1 }
   ],
   "profile": { "name": "typicode" },
+  "current_user": {
+    "name": "Sina Eizadshenass",
+    "roles" : [
+      "role.customerPortal"
+    ]
+  },
   "orders": [
   	{
   		"salesOrderCustomerId": 3,

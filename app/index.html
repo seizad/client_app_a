@@ -71,6 +71,8 @@
             </div>
           </div>
         </div>
+        
+
 
         <div class="container">
         <div ng-view=""></div>
@@ -92,13 +94,18 @@
         <script src="bower_components/devextreme/js/dx.all.js"></script>
         <script src="bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
         <script src="bower_components/angular-localization/angular-localization.js"></script>
+        <script src="bower_components/angular-permission/dist/angular-permission.js"></script>
+        <script src="bower_components/angular-permission/dist/angular-permission-ui.js"></script>
+        <script src="bower_components/angular-permission/dist/angular-permission-ng.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/jobSearchController.js"></script>
+        <script src="scripts/controllers/cp/CPJobSearchController.js"></script>
+        <script src="scripts/controllers/tp/TPJobSearchController.js"></script>
         <script src="scripts/services/jobsService.js"></script>
+        <script src="scripts/services/userService.js"></script>
         <script src="scripts/controllers/equipmentController.js"></script>
         <script src="scripts/controllers/ordersController.js"></script>
         <script src="scripts/directives/clearGrid.js"></script>

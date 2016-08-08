@@ -8,7 +8,7 @@
  * Controller of the sampleApp4App
  */
 angular.module('sampleApp4App')
-  .controller('JobSearchCtrl', function ($scope, $http, jobsService, locale) {
+  .controller('CPJobSearchCtrl', function ($scope, $http, jobsService, locale) {
     locale.ready('common').then(function () {
 
       $scope.statusSelOpts = {
@@ -78,7 +78,7 @@ angular.module('sampleApp4App')
       var columns = [
         { dataField: 'TaskNumber',          caption: locale.getString('common.CP_JobsGrid_TaskNumber')},
         { dataField: 'CompanyName',         caption: locale.getString('common.CP_JobsGrid_CompanyName') },
-        { dataField: 'CustomerCode',        caption: locale.getString('common.CP_JobsGrid_CustomerCode'), visible: false },
+        { dataField: 'CustomerID',        caption: locale.getString('common.CP_JobsGrid_CustomerID'), visible: false },
         { dataField: 'TaskCreatedDateTime', caption: locale.getString('common.CP_JobsGrid_TaskCreatedDateTime'), dataType: 'date', format: 'shortDateShortTime'},
         { dataField: 'TaskScheduledDateTime',   caption: locale.getString('common.CP_JobsGrid_TaskScheduledDateTime'), dataType: 'date', format: 'shortDateShortTime' },
         { dataField: 'TaskCompletedDateTime',   caption: locale.getString('common.CP_JobsGrid_TaskCompletedDateTime'), dataType: 'date', format: 'shortDateShortTime' },
@@ -99,7 +99,7 @@ angular.module('sampleApp4App')
         stateStoring: {
           enabled: true,
           type: 'localStorage',
-          storageKey: 'jobsGridState'
+          storageKey: 'CPJobsGridState'
         },
         columnChooser: { enabled: true },
         allowColumnReordering: true,

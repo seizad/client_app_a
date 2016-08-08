@@ -18,7 +18,9 @@ var app = angular.module(
     'ngTouch',
     'dx',
     'ngLocalize',
-    'ngLocalize.Config'
+    'ngLocalize.Config',
+    'permission',
+    'permission.ng'
   ]);
 
   app.value('localeConf', {
@@ -32,20 +34,43 @@ var app = angular.module(
     delimiter: '::',
     validTokens: new RegExp('^[\\w\\.-]+\\.[\\w\\s\\.-]+\\w(:.*)?$')
   });
+
+  app.run(function (PermissionStore, userService) {
+    // PermissionStore.clearStore();
+    userService.getCurrentUser().then(function(user) {
+      PermissionStore
+        .defineManyPermissions(['role.customerPortal', 'role.technicianPortal'], function (permissionName) {
+          if(user.roles.indexOf(permissionName) >= 0)
+            return true;
+          else
+            return false;
+        });
+    });
+  });
   
   app.config(function ($routeProvider) {
-    // Customer Portal
     function cp_url (url) {
       return '/cp' + url;
     }
+    function tp_url (url) {
+      return '/tp' + url;
+    }
+    
+    // Customer Portal
     $routeProvider
       .when(cp_url('/'), {
         templateUrl: 'views/jobSearch.html',
-        controller: 'JobSearchCtrl',
-        controllerAs: 'main'
-      })
-      .when(cp_url('/about'), {
-        templateUrl: 'views/about.html',
+        controller: 'CPJobSearchCtrl',
+        controllerAs: 'cpJobSearchController',
+        data: {
+          permissions: {
+            only: ['role.customerPortal'],
+            redirectTo: {
+              'role.technicianPortal': tp_url('/'),
+              default: '/login'
+            }
+          }
+        }
       })
       .when(cp_url('/equipment'), {
         templateUrl: 'views/equipment.html',
@@ -57,7 +82,35 @@ var app = angular.module(
         controller: 'OrdersCtrl',
         controllerAs: 'orders'
       })
+      .when(cp_url('/about'), {
+        templateUrl: 'views/cp/about.html',
+      })
+      .when('/login', {
+        templateUrl: 'views/login.html',
+      })
       .otherwise({
         redirectTo: cp_url('/')
       });
+
+    // Technician Portal
+    
+    $routeProvider
+      .when(tp_url('/'), {
+        templateUrl: 'views/jobSearch.html',
+        controller: 'TPJobSearchCtrl',
+        controllerAs: 'tpJobSearchController',
+        data: {
+          permissions: {
+            only: ['role.technicianPortal'],
+            redirectTo: {
+              'role.customerPortal': cp_url('/'),
+              default: '/login'
+            }
+          }
+        }
+      })
+      .when(tp_url('/about'), {
+        templateUrl: 'views/tp/about.html',
+      });
   });
+
