@@ -26,13 +26,13 @@ angular.module('sampleApp4App')
           visible: true
         },
         columns: [
+          { dataField: 'CustomerName',         caption: locale.getString('common.CP_EquipGrid_CustomerName')},
           { dataField: 'CustomerId', caption: locale.getString('common.CP_EquipGrid_CustomerId') },
-          { dataField: 'CustomerCode',      caption: locale.getString('common.CP_EquipGrid_CustomerCode'), visible: false },
-          { dataField: 'CustomerName',         caption: locale.getString('common.CP_EquipGrid_CustomerName'), visible: false },
+          { dataField: 'MachineSerialNumber', caption: locale.getString('common.CP_EquipGrid_MachineSerialNumber') },
+          { dataField: 'MachineId',         caption: locale.getString('common.CP_EquipGrid_MachineId') },
+          { dataField: 'CustomerCode',      caption: locale.getString('common.CP_EquipGrid_CustomerCode') },
           { dataField: 'ModelDescription',          caption: locale.getString('common.CP_EquipGrid_ModelDescription') },
           { dataField: 'MachineLocation',        caption: locale.getString('common.CP_EquipGrid_MachineLocation') },
-          { dataField: 'MachineId',         caption: locale.getString('common.CP_EquipGrid_MachineId') },
-          { dataField: 'MachineSerialNumber', caption: locale.getString('common.CP_EquipGrid_MachineSerialNumber') },
           { dataField: 'ModelClassAndNumber',   caption: locale.getString('common.CP_EquipGrid_ModelClassAndNumber') },
         ],
         stateStoring: {
