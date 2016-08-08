@@ -34,26 +34,30 @@ var app = angular.module(
   });
   
   app.config(function ($routeProvider) {
+    // Customer Portal
+    function cp_url (url) {
+      return '/cp' + url;
+    }
     $routeProvider
-      .when('/', {
+      .when(cp_url('/'), {
         templateUrl: 'views/jobSearch.html',
         controller: 'JobSearchCtrl',
         controllerAs: 'main'
       })
-      .when('/about', {
+      .when(cp_url('/about'), {
         templateUrl: 'views/about.html',
       })
-      .when('/equipment', {
+      .when(cp_url('/equipment'), {
         templateUrl: 'views/equipment.html',
         controller: 'EquipmentCtrl',
         controllerAs: 'equipment'
       })
-      .when('/orders', {
+      .when(cp_url('/orders'), {
         templateUrl: 'views/orders.html',
         controller: 'OrdersCtrl',
         controllerAs: 'orders'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: cp_url('/')
       });
   });
