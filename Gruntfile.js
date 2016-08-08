@@ -19,6 +19,8 @@ module.exports = function (grunt) {
     cdnify: 'grunt-google-cdn'
   });
 
+  grunt.loadNpmTasks('grunt-connect-proxy');
+
   // Configurable paths for the application
   var appConfig = {
     app: require('./bower.json').appPath || 'app',
@@ -75,11 +77,29 @@ module.exports = function (grunt) {
         hostname: 'localhost',
         livereload: 35729
       },
+      proxies: [
+        {
+          context: '/WebAPIMS/api',
+          host: '204.15.187.219',
+          port: 80,
+          https: false,
+          xforward: false,
+          // rewrite: {
+          //   '^/api2': '/WebAPIMS/api',
+          // }
+          // headers: {
+          //   "x-custom-added-header": value
+          // },
+          // hideHeaders: ['x-removed-header']
+        }
+      ],
       livereload: {
         options: {
           open: true,
           middleware: function (connect) {
+            var proxy = [require('grunt-connect-proxy/lib/utils').proxyRequest];
             return [
+              proxy,
               connect.static('.tmp'),
               connect().use(
                 '/bower_components',
@@ -468,6 +488,7 @@ module.exports = function (grunt) {
       'clean:server',
       'wiredep',
       'concurrent:server',
+      'configureProxies:server',
       'postcss:server',
       'connect:livereload',
       'watch'
