@@ -105,10 +105,16 @@ var app = angular.module(
         data: {
           permissions: {
             only: ['role.technicianPortal'],
-            redirectTo: {
-              'role.customerPortal': cp_url('/'),
-              default: '/login'
-            }
+            redirectTo: '/login'
+          }
+        }
+      })
+      .when(tp_url('/calendar'), {
+        templateUrl: 'views/tp/calendar.html',
+        data: {
+          permissions: {
+            only: ['role.technicianPortal'],
+            redirectTo: '/login'
           }
         }
       })
