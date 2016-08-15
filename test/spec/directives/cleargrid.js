@@ -3,7 +3,7 @@
 describe('Directive: clearGrid', function () {
 
   // load the directive's module
-  beforeEach(module('sampleApp4App'));
+  beforeEach(module('MSWebClient'));
 
   var element,
     scope;

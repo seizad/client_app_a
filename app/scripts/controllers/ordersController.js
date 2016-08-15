@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name sampleApp4App.controller:OrdersCtrl
+ * @name MSWebClient.controller:OrdersCtrl
  * @description
  * # OrdersCtrl
- * Controller of the sampleApp4App
+ * Controller of the MSWebClient
  */
-angular.module('sampleApp4App')
+angular.module('MSWebClient')
   .controller('OrdersCtrl', function ($scope, $http, jobsService, locale) {
     locale.ready('common').then(function () {
       

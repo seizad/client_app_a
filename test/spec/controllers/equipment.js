@@ -3,7 +3,7 @@
 describe('Controller: EquipmentCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('sampleApp4App'));
+  beforeEach(module('MSWebClient'));
 
   var EquipmentCtrl,
     scope;

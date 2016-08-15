@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name sampleApp4App
+ * @name MSWebClient
  * @description
- * # sampleApp4App
+ * # MSWebClient
  *
  * Main module of the application.
  */
 var app = angular.module(
-    'sampleApp4App', [
+    'MSWebClient', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -36,16 +36,19 @@ var app = angular.module(
   });
 
   app.run(function (PermissionStore, userService) {
-    // PermissionStore.clearStore();
-    userService.getCurrentUser().then(function(user) {
-      PermissionStore
-        .defineManyPermissions(['role.customerPortal', 'role.technicianPortal'], function (permissionName) {
-          if(user.roles.indexOf(permissionName) >= 0)
-            return true;
-          else
-            return false;
+    PermissionStore
+      .defineManyPermissions(['role.customerPortal', 'role.technicianPortal'], function (permissionName) {
+        var promise = new Promise(function(resolve, reject) {
+          userService.getCurrentUser().then(function(user) {
+            if(user.roles.indexOf(permissionName) >= 0) {
+              resolve(true);
+            } else {
+              reject(false);
+            }
+          });
         });
-    });
+        return promise;
+      });
   });
   
   app.config(function ($routeProvider) {

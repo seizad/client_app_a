@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc service
- * @name sampleApp4App.userService
+ * @name MSWebClient.userService
  * @description
  * # userService
- * Service in the sampleApp4App.
+ * Service in the MSWebClient.
  */
-angular.module('sampleApp4App')
+angular.module('MSWebClient')
   .service('userService', function ($http) {
     // AngularJS will instantiate a singleton by calling "new" on this function
     this.getCurrentUser = function () {

@@ -2,11 +2,11 @@
 
 /**
  * @ngdoc directive
- * @name sampleApp4App.directive:clearGrid
+ * @name MSWebClient.directive:clearGrid
  * @description
  * # clearGrid
  */
-angular.module('sampleApp4App')
+angular.module('MSWebClient')
   .directive('clearGrid', function () {
     return {
       template: '<div class="clearGridMenuBtn" dx-menu="menuOpts"></div>',

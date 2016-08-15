@@ -1,114 +1,64 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <!-- build:css(.) styles/vendor.css -->
-        <!-- bower:css -->
-        <link rel="stylesheet" href="bower_components/devextreme/css/dx.spa.css" />
-        <link rel="stylesheet" href="bower_components/devextreme/css/dx.common.css" />
-        <link rel="stylesheet" href="bower_components/devextreme/css/dx.light.css" />
-        <!-- endbower -->
-        <!-- endbuild -->
-        <!-- build:css(.tmp) styles/main.css -->
-        <link rel="stylesheet" href="styles/main.css">
-        <!-- endbuild -->
-    </head>
-    <body class="dx-theme-generic-typography" ng-app="sampleApp4App">
-        <!--[if lte IE 8]>
-          <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/devextreme/css/dx.spa.css" />
+  <link rel="stylesheet" href="bower_components/devextreme/css/dx.common.css" />
+  <link rel="stylesheet" href="bower_components/devextreme/css/dx.light.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+</head>
+<body class="dx-theme-generic-typography" ng-app="MSWebClient">
+  <!--[if lte IE 8]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
 
-        <!-- Add your site or application content here -->
-        <div class="bsns header">
-          <div class="navbar navbar-default navbar-static-top" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">
-                        <img id="app-logo" src="/images/logo_nav.png">
-                    </a>
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
-                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Jobs <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#/cp/">Jobs Grid</a></li>
-                                <li><a href="">New Job Request</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Equipment <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#/cp/equipment">Meter Readings</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Orders <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#/cp/orders">View Orders</a></li>
-                                <li><a href="">Place an Order</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Library <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="">Item 1</a></li>
-                                <li><a href="">Item 2</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-          </div>
-        </div>
-        
+    <div class="container">
+      <div permission permission-only="'role.technicianPortal'" ng-include="'views/tp/menu.html'"></div>
+      <div permission permission-only="'role.customerPortal'" ng-include="'views/cp/menu.html'"></div>
+      <div ng-view=""></div>
+    </div>
 
 
-        <div class="container">
-        <div ng-view=""></div>
-        </div>
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/jquery-1.12.3/index.js"></script>
+    <script src="bower_components/jszip/dist/jszip.js"></script>
+    <script src="bower_components/devextreme/js/dx.all.js"></script>
+    <script src="bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+    <script src="bower_components/angular-localization/angular-localization.js"></script>
+    <script src="bower_components/angular-permission/dist/angular-permission.js"></script>
+    <script src="bower_components/angular-permission/dist/angular-permission-ui.js"></script>
+    <script src="bower_components/angular-permission/dist/angular-permission-ng.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
 
-
-        <!-- build:js(.) scripts/vendor.js -->
-        <!-- bower:js -->
-        <script src="bower_components/jquery/dist/jquery.js"></script>
-        <script src="bower_components/angular/angular.js"></script>
-        <script src="bower_components/angular-animate/angular-animate.js"></script>
-        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-        <script src="bower_components/angular-resource/angular-resource.js"></script>
-        <script src="bower_components/angular-route/angular-route.js"></script>
-        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-        <script src="bower_components/angular-touch/angular-touch.js"></script>
-        <script src="bower_components/jquery-1.12.3/index.js"></script>
-        <script src="bower_components/jszip/dist/jszip.js"></script>
-        <script src="bower_components/devextreme/js/dx.all.js"></script>
-        <script src="bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
-        <script src="bower_components/angular-localization/angular-localization.js"></script>
-        <script src="bower_components/angular-permission/dist/angular-permission.js"></script>
-        <script src="bower_components/angular-permission/dist/angular-permission-ui.js"></script>
-        <script src="bower_components/angular-permission/dist/angular-permission-ng.js"></script>
-        <!-- endbower -->
-        <!-- endbuild -->
-
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/cp/CPJobSearchController.js"></script>
-        <script src="scripts/controllers/tp/TPJobSearchController.js"></script>
-        <script src="scripts/services/jobsService.js"></script>
-        <script src="scripts/services/userService.js"></script>
-        <script src="scripts/controllers/equipmentController.js"></script>
-        <script src="scripts/controllers/ordersController.js"></script>
-        <script src="scripts/directives/clearGrid.js"></script>
-        <!-- endbuild -->
-    </body>
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/cp/CPJobSearchController.js"></script>
+    <script src="scripts/controllers/tp/TPJobSearchController.js"></script>
+    <script src="scripts/services/jobsService.js"></script>
+    <script src="scripts/services/userService.js"></script>
+    <script src="scripts/controllers/equipmentController.js"></script>
+    <script src="scripts/controllers/ordersController.js"></script>
+    <script src="scripts/directives/clearGrid.js"></script>
+    <!-- endbuild -->
+  </body>
 </html>

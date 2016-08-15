@@ -3,7 +3,7 @@
 describe('Service: userService', function () {
 
   // load the service's module
-  beforeEach(module('sampleApp4App'));
+  beforeEach(module('MSWebClient'));
 
   // instantiate service
   var userService;

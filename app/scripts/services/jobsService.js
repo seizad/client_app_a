@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc service
- * @name sampleApp4App.jobs
+ * @name MSWebClient.jobs
  * @description
  * # jobs
- * Service in the sampleApp4App.
+ * Service in the MSWebClient.
  */
-angular.module('sampleApp4App')
+angular.module('MSWebClient')
   .service('jobsService', function ($http) {
     // AngularJS will instantiate a singleton by calling "new" on this function
     

@@ -33,6 +33,9 @@ module.exports = function(config) {
       'bower_components/devextreme/js/dx.all.js',
       'bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
       'bower_components/angular-localization/angular-localization.js',
+      'bower_components/angular-permission/dist/angular-permission.js',
+      'bower_components/angular-permission/dist/angular-permission-ui.js',
+      'bower_components/angular-permission/dist/angular-permission-ng.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',
