@@ -60,33 +60,43 @@ var app = angular.module(
     }
     
     // Customer Portal
+    var cpPermissions = {
+      only: ['role.customerPortal'],
+      redirectTo: {
+        'role.technicianPortal': tp_url('/'),
+        default: '/login'
+      }
+    };
     $routeProvider
       .when(cp_url('/'), {
         templateUrl: 'views/jobSearch.html',
         controller: 'CPJobSearchCtrl',
         controllerAs: 'cpJobSearchController',
         data: {
-          permissions: {
-            only: ['role.customerPortal'],
-            redirectTo: {
-              'role.technicianPortal': tp_url('/'),
-              default: '/login'
-            }
-          }
+          permissions: cpPermissions
         }
       })
       .when(cp_url('/equipment'), {
         templateUrl: 'views/equipment.html',
         controller: 'EquipmentCtrl',
-        controllerAs: 'equipment'
+        controllerAs: 'equipment',
+        data: {
+          permissions: cpPermissions
+        }
       })
       .when(cp_url('/orders'), {
         templateUrl: 'views/orders.html',
         controller: 'OrdersCtrl',
-        controllerAs: 'orders'
+        controllerAs: 'orders',
+        data: {
+          permissions: cpPermissions
+        }
       })
       .when(cp_url('/about'), {
         templateUrl: 'views/cp/about.html',
+        data: {
+          permissions: cpPermissions
+        }
       })
       .when('/login', {
         templateUrl: 'views/login.html',
@@ -96,26 +106,23 @@ var app = angular.module(
       });
 
     // Technician Portal
-    
+    var tpPermissions = {
+      only: ['role.technicianPortal'],
+      redirectTo: '/login'
+    };
     $routeProvider
       .when(tp_url('/'), {
         templateUrl: 'views/jobSearch.html',
         controller: 'TPJobSearchCtrl',
         controllerAs: 'tpJobSearchController',
         data: {
-          permissions: {
-            only: ['role.technicianPortal'],
-            redirectTo: '/login'
-          }
+          permissions: tpPermissions
         }
       })
       .when(tp_url('/calendar'), {
         templateUrl: 'views/tp/calendar.html',
         data: {
-          permissions: {
-            only: ['role.technicianPortal'],
-            redirectTo: '/login'
-          }
+          permissions: tpPermissions
         }
       })
       .when(tp_url('/customers'), {
@@ -123,10 +130,15 @@ var app = angular.module(
         controller: 'TPCustomersCtrl',
         controllerAs: 'tpCustomerController',
         data: {
-          permissions: {
-            only: ['role.technicianPortal'],
-            redirectTo: '/login'
-          }
+          permissions: tpPermissions
+        }
+      })
+      .when(tp_url('/equipment'), {
+        templateUrl: 'views/equipment.html',
+        controller: 'EquipmentCtrl',
+        controllerAs: 'equipment',
+        data: {
+          permissions: tpPermissions
         }
       })
       .when(tp_url('/about'), {
