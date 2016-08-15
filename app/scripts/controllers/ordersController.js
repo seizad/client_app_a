@@ -8,13 +8,30 @@
  * Controller of the MSWebClient
  */
 angular.module('MSWebClient')
-  .controller('OrdersCtrl', function ($scope, $http, jobsService, locale) {
+  .controller('OrdersCtrl', function ($scope, $http, jobsService, util, locale) {
     locale.ready('common').then(function () {
       
       var ds = new DevExpress.data.CustomStore({
         load: function (loadOptions) {
           return jobsService.getOrders();
         }
+      });
+
+      var columns = [
+          { dataField: 'salesOrderNumber', caption: locale.getString('common.CP_OrdersGrid_salesOrderNumber') },
+          { dataField: 'salesOrderDate',      caption: locale.getString('common.CP_OrdersGrid_salesOrderDate') },
+          { dataField: 'salesOrderStatusText',         caption: locale.getString('common.CP_OrdersGrid_salesOrderStatusText') },
+          { dataField: 'paymentTerms',          caption: locale.getString('common.CP_OrdersGrid_paymentTerms') },
+          { dataField: 'subTotalAmount',        caption: locale.getString('common.CP_OrdersGrid_subTotalAmount'),   format: 'currency', dataType: 'number' },
+          { dataField: 'taxAmount',         caption: locale.getString('common.CP_OrdersGrid_taxAmount'),            format: 'currency', dataType: 'number' },
+          { dataField: 'otherChargesAmount', caption: locale.getString('common.CP_OrdersGrid_otherChargesAmount'),  format: 'currency', dataType: 'number' },
+          { dataField: 'discountAmount', caption: locale.getString('common.CP_OrdersGrid_discountAmount'),          format: 'currency', dataType: 'number' },
+          { dataField: 'totalAmount',   caption: locale.getString('common.CP_OrdersGrid_totalAmount'),              format: 'currency', dataType: 'number' },
+        ];
+
+      util.makeResponsive(columns, {
+        tablet: [0, 2, 3, 4],
+        mobile: [0, 2]
       });
 
       // body...
@@ -25,17 +42,7 @@ angular.module('MSWebClient')
         headerFilter: {
           visible: true
         },
-        columns: [
-          { dataField: 'salesOrderNumber', caption: locale.getString('common.CP_OrdersGrid_salesOrderNumber') },
-          { dataField: 'salesOrderDate',      caption: locale.getString('common.CP_OrdersGrid_salesOrderDate') },
-          { dataField: 'salesOrderStatusText',         caption: locale.getString('common.CP_OrdersGrid_salesOrderStatusText') },
-          { dataField: 'paymentTerms',          caption: locale.getString('common.CP_OrdersGrid_paymentTerms') },
-          { dataField: 'subTotalAmount',        caption: locale.getString('common.CP_OrdersGrid_subTotalAmount'), 	format: 'currency', dataType: 'number' },
-          { dataField: 'taxAmount',         caption: locale.getString('common.CP_OrdersGrid_taxAmount'), 						format: 'currency', dataType: 'number' },
-          { dataField: 'otherChargesAmount', caption: locale.getString('common.CP_OrdersGrid_otherChargesAmount'), 	format: 'currency', dataType: 'number' },
-          { dataField: 'discountAmount', caption: locale.getString('common.CP_OrdersGrid_discountAmount'), 					format: 'currency', dataType: 'number' },
-          { dataField: 'totalAmount',   caption: locale.getString('common.CP_OrdersGrid_totalAmount'), 							format: 'currency', dataType: 'number' },
-        ],
+        columns: columns,
         stateStoring: {
           enabled: true,
           type: "localStorage",

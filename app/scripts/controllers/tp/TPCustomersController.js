@@ -8,7 +8,7 @@
  * Controller of the MSWebClient
  */
 angular.module('MSWebClient')
-  .controller('TPCustomersCtrl', function ($scope, $http, $window, jobsService, locale) {
+  .controller('TPCustomersCtrl', function ($scope, $http, jobsService, util, locale) {
     locale.ready('common').then(function () {
       
       var ds = new DevExpress.data.CustomStore({
@@ -27,26 +27,7 @@ angular.module('MSWebClient')
           { dataField: 'CustomerCountry',   caption: locale.getString('common.CP_CustomersGrid_CustomerCountry'), visible: false }
         ];
 
-      function makeResponsive (cols, colOptoins) {
-        function showOnly(colToShow) {
-          cols.forEach(function(col, i){
-            if (colToShow.indexOf(i) < 0) {
-              col.visible = false;
-            }
-          });
-        }
-
-        var width = $window.innerWidth;
-        if(width > 800) { //Desktop
-          // Use default setup
-        } else if (width > 500) { // tablet 
-          showOnly(colOptoins.tablet);
-        } else { // Mobile
-          showOnly(colOptoins.mobile);
-        }
-      }
-
-      makeResponsive(columns, {
+      util.makeResponsive(columns, {
         tablet: [0, 2, 3, 4],
         mobile: [0, 2]
       });
@@ -60,11 +41,11 @@ angular.module('MSWebClient')
           visible: true
         },
         columns: columns,
-        stateStoring: {
-          enabled: true,
-          type: "localStorage",
-          storageKey: "customerGridState"
-        },
+        // stateStoring: {
+        //   enabled: true,
+        //   type: "localStorage",
+        //   storageKey: "customerGridState"
+        // },
         columnChooser: { enabled: true },
         allowColumnReordering: true,
         allowColumnResizing: true,

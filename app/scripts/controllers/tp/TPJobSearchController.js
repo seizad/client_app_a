@@ -8,7 +8,7 @@
  * Controller of the MSWebClient
  */
 angular.module('MSWebClient')
-  .controller('TPJobSearchCtrl', function ($scope, $http, jobsService, locale) {
+  .controller('TPJobSearchCtrl', function ($scope, $http, jobsService, util, locale) {
     locale.ready('common').then(function () {
 
       $scope.statusSelOpts = {
@@ -90,6 +90,11 @@ angular.module('MSWebClient')
         { dataField: 'TaskCompletedDateTime',   caption: locale.getString('common.CP_JobsGrid_TaskCompletedDateTime'), dataType: 'date', format: 'shortDateShortTime' }
       ];
 
+      util.makeResponsive(columns, {
+        tablet: [0, 1, 2, 4],
+        mobile: [0, 1]
+      });
+
       $scope.jobsGrid = {
         onContentReady: function(e) {
           $scope.gridInst = e.component;
@@ -98,11 +103,11 @@ angular.module('MSWebClient')
           visible: true
         },
         columns: columns,
-        stateStoring: {
-          enabled: true,
-          type: 'localStorage',
-          storageKey: 'TPJobsGridState'
-        },
+        // stateStoring: {
+        //   enabled: true,
+        //   type: 'localStorage',
+        //   storageKey: 'TPJobsGridState'
+        // },
         columnChooser: { enabled: true },
         allowColumnReordering: true,
         allowColumnResizing: true,
