@@ -29,5 +29,12 @@
 	"CP_OrdersGrid_taxAmount": "Tax",
 	"CP_OrdersGrid_otherChargesAmount": "Other Charges",
 	"CP_OrdersGrid_discountAmount": "Discount",
-	"CP_OrdersGrid_totalAmount": "Total"
+	"CP_OrdersGrid_totalAmount": "Total",
+	"CP_CustomersGrid_CompanyName": "Customer Name",
+	"CP_CustomersGrid_CustomerID": "Customer ID",
+	"CP_CustomersGrid_CustomerPhone": "Phone",
+	"CP_CustomersGrid_CustomerAddress1": "Address",
+	"CP_CustomersGrid_CustomerCity": "City",
+	"CP_CustomersGrid_CustomerState": "State/Prov",
+	"CP_CustomersGrid_CustomerCountry": "Country"
 }

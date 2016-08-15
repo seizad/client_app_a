@@ -118,6 +118,17 @@ var app = angular.module(
           }
         }
       })
+      .when(tp_url('/customers'), {
+        templateUrl: 'views/tp/customers.html',
+        controller: 'TPCustomersCtrl',
+        controllerAs: 'tpCustomerController',
+        data: {
+          permissions: {
+            only: ['role.technicianPortal'],
+            redirectTo: '/login'
+          }
+        }
+      })
       .when(tp_url('/about'), {
         templateUrl: 'views/tp/about.html',
       });

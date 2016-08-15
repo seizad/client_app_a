@@ -47,4 +47,14 @@ angular.module('MSWebClient')
         });
       return d.promise();
     };
+
+    this.getCustomers = function() {
+      var API = 'http://localhost:4000';
+      var d = $.Deferred();
+      $http.get(API + '/api/customers')
+        .success(function (response) {
+          d.resolve(response.customers, { totalCount: response.length });
+        });
+      return d.promise();
+    };
   });
