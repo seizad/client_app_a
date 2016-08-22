@@ -121,6 +121,8 @@ var app = angular.module(
       })
       .when(tp_url('/calendar'), {
         templateUrl: 'views/tp/calendar.html',
+        controller: 'TPCalendarCtrl',
+        controllerAs: 'tpCalendarController',
         data: {
           permissions: tpPermissions
         }

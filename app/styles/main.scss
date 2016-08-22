@@ -12,6 +12,45 @@ body {
 
   .viewHeader {
     padding-left: 20px;
+    margin-bottom: 1rem;
+  }
+
+  .dx-scheduler-header-panel-cell,
+  .dx-scheduler-time-panel-cell {
+    font-size: .9rem;
+  }
+
+  .appointment {
+    padding: .5rem;
+    
+    div {
+      float: left;
+    }
+
+    .title {
+      margin-bottom: .2rem;
+      width: 100%;
+    }
+
+    .compName {
+      font-weight: bold;
+      max-width: 60%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: inline;
+      white-space: nowrap;
+    }
+    
+    .taskId {
+      float: right;
+    }
+
+    .desc {
+      border-top: 1px solid;
+      padding-top: .5rem;
+      width: 100%;
+      font-size: .85rem;
+    }
   }
   
   .browsehappy {

@@ -1,1 +1,13 @@
 <h1 class="viewHeader">Jobs Calendar</h1>
+<div dx-scheduler="schedulerOptions" dx-item-alias="task">
+	<div class="appointment" data-options="dxTemplate: {name: 'jobTmplt'}" >
+		<div class="title">
+	    <div class="compName">{{task.CompanyName}}</div>
+	    <div class="taskId">Task #: {{task.TaskNumber}}</div>
+	  </div>
+	  <div class="desc">
+	  	<span>{{task.time}}</span>
+	  	<p>{{task.TaskDescription}}</p>
+	  </div>
+	</div>
+</div>

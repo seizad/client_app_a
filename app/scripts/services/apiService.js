@@ -8,7 +8,7 @@
  * Service in the MSWebClient.
  */
 angular.module('MSWebClient')
-  .service('jobsService', function ($http) {
+  .service('apiService', function ($http) {
     // AngularJS will instantiate a singleton by calling "new" on this function
     
     this.getJobs = function(loadOptions) {
@@ -22,6 +22,23 @@ angular.module('MSWebClient')
       }
       var d = $.Deferred();
       $http.get(API + '/api/tasks', { 'params': params })
+        .success(function (response) {
+          d.resolve(response.tasks, { totalCount: response.length });
+        });
+      return d.promise();
+    };
+
+    this.getJobBriefs = function(loadOptions) {
+      var API = 'http://localhost:4000';
+      // var API = 'http://localhost:9000/WebAPIMS';
+      var params = {};
+      if(loadOptions) {
+        if(loadOptions.filter) {
+          params = loadOptions.filter;
+        }
+      }
+      var d = $.Deferred();
+      $http.get(API + '/api/taskBriefs', { 'params': params })
         .success(function (response) {
           d.resolve(response.tasks, { totalCount: response.length });
         });

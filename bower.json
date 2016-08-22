@@ -12,7 +12,8 @@
     "devextreme": "~16.1.4",
     "bootstrap-sass": "~3.3.6",
     "angular-localization": "~1.2.1",
-    "angular-permission": "3.2.1"
+    "angular-permission": "3.2.1",
+    "moment": "~2.14.1"
   },
   "overrides": {
     "bootstrap-sass": {

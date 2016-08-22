@@ -8,7 +8,7 @@
  * Controller of the MSWebClient
  */
 angular.module('MSWebClient')
-  .controller('CPJobSearchCtrl', function ($scope, $http, jobsService, locale) {
+  .controller('CPJobSearchCtrl', function ($scope, $http, apiService, locale) {
     locale.ready('common').then(function () {
 
       $scope.statusSelOpts = {
@@ -71,7 +71,7 @@ angular.module('MSWebClient')
             status: $scope.status,
             interval: $scope.interval
           };
-          return jobsService.getJobs(loadOptions);
+          return apiService.getJobs(loadOptions);
         }
       });
 

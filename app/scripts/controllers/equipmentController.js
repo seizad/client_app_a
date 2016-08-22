@@ -8,12 +8,12 @@
  * Controller of the MSWebClient
  */
 angular.module('MSWebClient')
-  .controller('EquipmentCtrl', function ($scope, $http, jobsService, locale) {
+  .controller('EquipmentCtrl', function ($scope, $http, apiService, locale) {
     locale.ready('common').then(function () {
       
       var ds = new DevExpress.data.CustomStore({
         load: function (loadOptions) {
-          return jobsService.getEquipment();
+          return apiService.getEquipment();
         }
       });
 
