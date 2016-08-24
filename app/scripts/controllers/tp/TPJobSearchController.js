@@ -8,7 +8,7 @@
  * Controller of the MSWebClient
  */
 angular.module('MSWebClient')
-  .controller('TPJobSearchCtrl', function ($scope, $http, apiService, util, locale) {
+  .controller('TPJobSearchCtrl', function ($scope, $http, apiService, util, locale, GLOBAL_CONF) {
     locale.ready('common').then(function () {
 
       $scope.statusSelOpts = {
@@ -95,6 +95,15 @@ angular.module('MSWebClient')
         mobile: [0, 1]
       });
 
+      var stateStoring = {
+        enabled: false,
+        type: 'localStorage',
+        storageKey: 'TPJobsGridState'
+      };
+      if(GLOBAL_CONF.grids.storeState) {
+        stateStoring.enabled = true;
+      }
+
       $scope.jobsGrid = {
         onContentReady: function(e) {
           $scope.gridInst = e.component;
@@ -103,11 +112,7 @@ angular.module('MSWebClient')
           visible: true
         },
         columns: columns,
-        // stateStoring: {
-        //   enabled: true,
-        //   type: 'localStorage',
-        //   storageKey: 'TPJobsGridState'
-        // },
+        stateStoring: stateStoring,
         columnChooser: { enabled: true },
         allowColumnReordering: true,
         allowColumnResizing: true,

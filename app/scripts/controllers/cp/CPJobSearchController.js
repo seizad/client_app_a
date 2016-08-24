@@ -8,7 +8,7 @@
  * Controller of the MSWebClient
  */
 angular.module('MSWebClient')
-  .controller('CPJobSearchCtrl', function ($scope, $http, apiService, locale) {
+  .controller('CPJobSearchCtrl', function ($scope, $http, apiService, locale, GLOBAL_CONF) {
     locale.ready('common').then(function () {
 
       $scope.statusSelOpts = {
@@ -88,6 +88,15 @@ angular.module('MSWebClient')
         { dataField: 'EquipmentId',         caption: locale.getString('common.CP_JobsGrid_EquipmentId') }
       ];
 
+      var stateStoring = {
+        enabled: false,
+        type: 'localStorage',
+        storageKey: 'CPJobsGridState'
+      };
+      if(GLOBAL_CONF.grids.storeState) {
+        stateStoring.enabled = true;
+      }
+
       $scope.jobsGrid = {
         onContentReady: function(e) {
           $scope.gridInst = e.component;
@@ -96,11 +105,7 @@ angular.module('MSWebClient')
           visible: true
         },
         columns: columns,
-        stateStoring: {
-          enabled: true,
-          type: 'localStorage',
-          storageKey: 'CPJobsGridState'
-        },
+        stateStoring: stateStoring,
         columnChooser: { enabled: true },
         allowColumnReordering: true,
         allowColumnResizing: true,

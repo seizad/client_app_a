@@ -35,9 +35,9 @@ var app = angular.module(
     validTokens: new RegExp('^[\\w\\.-]+\\.[\\w\\s\\.-]+\\w(:.*)?$')
   });
 
-  app.run(function (PermissionStore, userService) {
+  app.run(function (PermissionStore, userService, GLOBAL_CONF) {
     PermissionStore
-      .defineManyPermissions(['role.customerPortal', 'role.technicianPortal'], function (permissionName) {
+      .defineManyPermissions(GLOBAL_CONF.availablePermissions, function (permissionName) {
         var promise = new Promise(function(resolve, reject) {
           userService.getCurrentUser().then(function(user) {
             if(user.roles.indexOf(permissionName) >= 0) {

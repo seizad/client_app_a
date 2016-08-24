@@ -8,7 +8,7 @@
  * Service in the MSWebClient.
  */
 angular.module('MSWebClient')
-  .service('util', function ($window) {
+  .service('util', function ($window, GLOBAL_CONF) {
     // AngularJS will instantiate a singleton by calling "new" on this function
     this.makeResponsive = function(cols, colOptoins) {
       function showOnly(colToShow) {
@@ -20,9 +20,9 @@ angular.module('MSWebClient')
       }
 
       var width = $window.innerWidth;
-      if(width > 800) { //Desktop
+      if(width > GLOBAL_CONF.screenSizes.minDesktopSize) { //Desktop
         // Use default setup
-      } else if (width > 500) { // tablet 
+      } else if (width > GLOBAL_CONF.screenSizes.minTabletSize) { // tablet 
         showOnly(colOptoins.tablet);
       } else { // Mobile
         showOnly(colOptoins.mobile);

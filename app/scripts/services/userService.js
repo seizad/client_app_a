@@ -8,10 +8,10 @@
  * Service in the MSWebClient.
  */
 angular.module('MSWebClient')
-  .service('userService', function ($http) {
+  .service('userService', function ($http, GLOBAL_CONF) {
     // AngularJS will instantiate a singleton by calling "new" on this function
     this.getCurrentUser = function () {
-      var API = 'http://localhost:4000';
+      var API = GLOBAL_CONF.apiUrl;
     	var d = $.Deferred();
         $http.get(API + '/api/current_user')
           .success(function (response) {

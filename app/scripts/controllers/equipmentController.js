@@ -8,7 +8,7 @@
  * Controller of the MSWebClient
  */
 angular.module('MSWebClient')
-  .controller('EquipmentCtrl', function ($scope, $http, apiService, locale) {
+  .controller('EquipmentCtrl', function ($scope, $http, apiService, locale, GLOBAL_CONF) {
     locale.ready('common').then(function () {
       
       var ds = new DevExpress.data.CustomStore({
@@ -16,6 +16,15 @@ angular.module('MSWebClient')
           return apiService.getEquipment();
         }
       });
+
+      var stateStoring = {
+        enabled: false,
+        type: "localStorage",
+        storageKey: "equipGridState"
+      };
+      if(GLOBAL_CONF.grids.storeState) {
+        stateStoring.enabled = true;
+      }
 
       // body...
       $scope.equipmentGrid = {
@@ -35,11 +44,7 @@ angular.module('MSWebClient')
           { dataField: 'MachineLocation',        caption: locale.getString('common.CP_EquipGrid_MachineLocation') },
           { dataField: 'ModelClassAndNumber',   caption: locale.getString('common.CP_EquipGrid_ModelClassAndNumber') },
         ],
-        stateStoring: {
-          enabled: true,
-          type: "localStorage",
-          storageKey: "equipGridState"
-        },
+        stateStoring: stateStoring,
         columnChooser: { enabled: true },
         allowColumnReordering: true,
         allowColumnResizing: true,

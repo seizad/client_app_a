@@ -8,7 +8,7 @@
  * Controller of the MSWebClient
  */
 angular.module('MSWebClient')
-  .controller('OrdersCtrl', function ($scope, $http, apiService, util, locale) {
+  .controller('OrdersCtrl', function ($scope, $http, apiService, util, locale, GLOBAL_CONF) {
     locale.ready('common').then(function () {
       
       var ds = new DevExpress.data.CustomStore({
@@ -34,6 +34,15 @@ angular.module('MSWebClient')
         mobile: [0, 2]
       });
 
+      var stateStoring = {
+        enabled: false,
+        type: "localStorage",
+        storageKey: "ordersGridState"
+      };
+      if(GLOBAL_CONF.grids.storeState) {
+        stateStoring.enabled = true;
+      }
+
       // body...
       $scope.ordersGrid = {
         onContentReady: function(e) {
@@ -43,11 +52,7 @@ angular.module('MSWebClient')
           visible: true
         },
         columns: columns,
-        stateStoring: {
-          enabled: true,
-          type: "localStorage",
-          storageKey: "ordersGridState"
-        },
+        stateStoring: stateStoring,
         columnChooser: { enabled: true },
         allowColumnReordering: true,
         allowColumnResizing: true,
