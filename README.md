@@ -8,8 +8,11 @@ version 0.15.1.
 Run `grunt` for building.
 
 ## Running in Developement
-Run the following commands to install all dependencies
+
+Run the following commands to install all dependencies:
+
 `npm install`
+
 `bower install`
 
 Next start the json-server to mock the backend api by running the command below from the root of the project (see https://github.com/typicode/json-server for more detail on how this works):
