@@ -1,5 +1,5 @@
-/node_modules
-/dist
-/.tmp
-/.sass-cache
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
 /bower_components

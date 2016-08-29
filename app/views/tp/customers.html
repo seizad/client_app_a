@@ -1,7 +1,164 @@
 <h1 class="viewHeader">Search Customers</h1>
 <div class="gridContainer">
-	<div class="gridToolbar">
-		<clear-grid grid-instance="::gridInst"></clear-grid>
-	</div>
-	<div class="grid" dx-data-grid="customersGrid"></div>
+    <div class="gridToolbar">
+        <clear-grid grid-instance="::gridInst"></clear-grid>
+    </div>
+    <div class="grid" dx-data-grid="customersGrid" dx-item-alias="customer">
+        <div data-options="dxTemplate:{ name:'cellTemplate' }">
+            <a href="javascript:void(0)" ng-click="click(customer)">{{customer.value}}</a>
+        </div>
+    </div>
+
+    <div ng-init="currentEmployee">
+        <div class="popup"
+             dx-popup="popupOptions">
+            <div data-options="dxTemplate: { name:'info' }">
+                <div class="demo-container" style="max-height: 500px; overflow-x: hidden;">
+                    <div class="form">
+                        <div class="dx-fieldset" style="margin: 10px 20px;">
+                            <div class="dx-field">
+                                <div class="dx-field-label">Company Id</div>
+                                <div class="dx-field-value">
+                                    <div id="disabled" class="dx-texteditor dx-state-disabled dx-widget dx-textbox">
+                                        <div class="dx-texteditor-container">
+                                            <input class="dx-texteditor-input" autocomplete="off" type="text" aria-disabled="true" disabled="disabled" ng-model="currentCustomer.CustomerID">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dx-field">
+                                <div class="dx-field-label">Company Name</div>
+                                <div class="dx-field-value">
+                                    <div id="disabled" class="dx-texteditor dx-state-disabled dx-widget dx-textbox">
+                                        <div class="dx-texteditor-container">
+                                            <input class="dx-texteditor-input" autocomplete="off" type="text" aria-disabled="true" disabled="disabled" ng-model="currentCustomer.CompanyName">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dx-field">
+                                <div class="dx-field-label">Address 1</div>
+                                <div class="dx-field-value">
+                                    <div id="disabled" class="dx-texteditor dx-widget dx-textbox">
+                                        <div class="dx-texteditor-container">
+                                            <input class="dx-texteditor-input" autocomplete="off" type="text" ng-model="currentCustomer.CustomerAddress1" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dx-field">
+                                <div class="dx-field-label">Address 2</div>
+                                <div class="dx-field-value">
+                                    <div id="disabled" class="dx-texteditor dx-widget dx-textbox">
+                                        <div class="dx-texteditor-container">
+                                            <input class="dx-texteditor-input" autocomplete="off" type="text" ng-model="currentCustomer.CustomerAddress2" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dx-field">
+                                <div class="dx-field-label">City</div>
+                                <div class="dx-field-value">
+                                    <div id="disabled" class="dx-texteditor dx-widget dx-textbox">
+                                        <div class="dx-texteditor-container">
+                                            <input class="dx-texteditor-input" autocomplete="off" type="text" ng-model="currentCustomer.CustomerCity" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dx-field">
+                                <div class="dx-field-label">State</div>
+                                <div class="dx-field-value">
+                                    <div id="disabled" class="dx-texteditor dx-widget dx-textbox">
+                                        <div class="dx-texteditor-container">
+                                            <input class="dx-texteditor-input" autocomplete="off" type="text" ng-model="currentCustomer.CustomerState" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dx-field">
+                                <div class="dx-field-label">Country</div>
+                                <div class="dx-field-value">
+                                    <div id="disabled" class="dx-texteditor dx-widget dx-textbox">
+                                        <div class="dx-texteditor-container">
+                                            <input class="dx-texteditor-input" autocomplete="off" type="text" ng-model="currentCustomer.CustomerCountry" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dx-field">
+                                <div class="dx-field-label">Phone</div>
+                                <div class="dx-field-value">
+                                    <div id="simple" class="dx-texteditor dx-widget dx-textbox">
+                                        <div class="dx-texteditor-container">
+                                            <input class="dx-texteditor-input" autocomplete="off" type="text" ng-model="currentCustomer.CustomerPhone" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dx-field">
+                                <div class="dx-field-label">Other Phone</div>
+                                <div class="dx-field-value">
+                                    <div id="simple" class="dx-texteditor dx-widget dx-textbox">
+                                        <div class="dx-texteditor-container">
+                                            <input class="dx-texteditor-input" autocomplete="off" type="text" ng-model="currentCustomer.CustomerOtherPhone" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dx-field">
+                                <div class="dx-field-label">Comments</div>
+                                <div class="dx-field-value">
+                                    <div id="simple" class="dx-texteditor dx-widget dx-textbox">
+                                        <div class="dx-texteditor-container">
+                                            <textarea class="dx-texteditor-input" ng-model="currentCustomer.CustomerComments"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<div class="dx-field">
+                                <div class="dx-field-label"></div>
+                                <div class="dx-field-value">
+                                    <div>
+                                        <div id="default" class="dx-button dx-button-default dx-widget dx-button-has-text" onclick="void(0)" role="button" aria-label="Done" tabindex="0" style="margin:0;">
+                                            <div class="dx-button-content">
+                                                <span class="dx-button-text">Done</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>-->
+
+                        </div>
+                    </div>
+                    <h3 style="margin-bottom:10px;">Customer Contacts</h3>
+                    <div class="dx-datagrid dx-datagrid-rowsview">
+                        <table id="custgrid" class="dx-datagrid-table dx-datagrid-table-fixed">
+                            <thead>
+                                <tr class="dx-row dx-data-row">
+                                    <th>Email</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Phome</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="dx-row dx-data-row dx-column-lines" ng-show="CustomerContacts.length == 0">
+                                    <td class="empty-row" colspan="4">No Data Found.</td>
+                                </tr>
+                                <tr class="dx-row dx-data-row dx-column-lines" ng-repeat="c in CustomerContacts">
+                                    <td>{{c.ContactEmail}}</td>
+                                    <td>{{c.ContactFirstName}}</td>
+                                    <td>{{c.ContactLastName}}</td>
+                                    <td>{{c.ContactPhone}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 </div>

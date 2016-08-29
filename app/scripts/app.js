@@ -21,9 +21,9 @@ var app = angular.module(
     'ngLocalize.Config',
     'permission',
     'permission.ng'
-  ]);
+    ]);
 
-  app.value('localeConf', {
+app.value('localeConf', {
     basePath: 'api/languages',
     defaultLocale: 'en-US',
     sharedDictionary: 'common',
@@ -33,118 +33,130 @@ var app = angular.module(
     observableAttrs: new RegExp('^data-(?!ng-|i18n)'),
     delimiter: '::',
     validTokens: new RegExp('^[\\w\\.-]+\\.[\\w\\s\\.-]+\\w(:.*)?$')
-  });
+});
 
-  app.run(function (PermissionStore, userService, GLOBAL_CONF) {
+app.run(function (PermissionStore, userService, GLOBAL_CONF) {
     PermissionStore
       .defineManyPermissions(GLOBAL_CONF.availablePermissions, function (permissionName) {
-        var promise = new Promise(function(resolve, reject) {
-          userService.getCurrentUser().then(function(user) {
-            if(user.roles.indexOf(permissionName) >= 0) {
-              resolve(true);
-            } else {
-              reject(false);
-            }
+          var promise = new Promise(function (resolve, reject) {
+              userService.getCurrentUser().then(function (user) {
+                  if (user.roles.indexOf(permissionName) >= 0) {
+                      resolve(true);
+                  } else {
+                      reject(false);
+                  }
+              });
           });
-        });
-        return promise;
+          return promise;
       });
-  });
-  
-  app.config(function ($routeProvider) {
-    function cp_url (url) {
-      return '/cp' + url;
+});
+
+app.config(function ($routeProvider) {
+    function cp_url(url) {
+        return '/cp' + url;
     }
-    function tp_url (url) {
-      return '/tp' + url;
+    function tp_url(url) {
+        return '/tp' + url;
     }
-    
+
     // Customer Portal
     var cpPermissions = {
-      only: ['role.customerPortal'],
-      redirectTo: {
-        'role.technicianPortal': tp_url('/'),
-        default: '/login'
-      }
+        only: ['role.customerPortal'],
+        redirectTo: {
+            'role.technicianPortal': tp_url('/'),
+            default: '/login'
+        }
     };
     $routeProvider
       .when(cp_url('/'), {
-        templateUrl: 'views/jobSearch.html',
-        controller: 'CPJobSearchCtrl',
-        controllerAs: 'cpJobSearchController',
-        data: {
-          permissions: cpPermissions
-        }
+          templateUrl: 'views/jobSearch.html',
+          controller: 'CPJobSearchCtrl',
+          controllerAs: 'cpJobSearchController',
+          data: {
+              permissions: cpPermissions
+          }
       })
       .when(cp_url('/equipment'), {
-        templateUrl: 'views/equipment.html',
-        controller: 'EquipmentCtrl',
-        controllerAs: 'equipment',
-        data: {
-          permissions: cpPermissions
-        }
+          templateUrl: 'views/equipment.html',
+          controller: 'EquipmentCtrl',
+          controllerAs: 'equipment',
+          data: {
+              permissions: cpPermissions
+          }
       })
       .when(cp_url('/orders'), {
-        templateUrl: 'views/orders.html',
-        controller: 'OrdersCtrl',
-        controllerAs: 'orders',
-        data: {
-          permissions: cpPermissions
-        }
+          templateUrl: 'views/orders.html',
+          controller: 'OrdersCtrl',
+          controllerAs: 'orders',
+          data: {
+              permissions: cpPermissions
+          }
       })
       .when(cp_url('/about'), {
-        templateUrl: 'views/cp/about.html',
-        data: {
-          permissions: cpPermissions
-        }
+          templateUrl: 'views/cp/about.html',
+          data: {
+              permissions: cpPermissions
+          }
       })
       .when('/login', {
-        templateUrl: 'views/login.html',
+          templateUrl: 'views/login.html',
       })
       .otherwise({
-        redirectTo: cp_url('/')
+          redirectTo: cp_url('/')
       });
 
     // Technician Portal
     var tpPermissions = {
-      only: ['role.technicianPortal'],
-      redirectTo: '/login'
+        only: ['role.technicianPortal'],
+        redirectTo: '/login'
     };
     $routeProvider
       .when(tp_url('/'), {
-        templateUrl: 'views/jobSearch.html',
-        controller: 'TPJobSearchCtrl',
-        controllerAs: 'tpJobSearchController',
-        data: {
-          permissions: tpPermissions
-        }
+          templateUrl: 'views/jobSearch.html',
+          controller: 'TPJobSearchCtrl',
+          controllerAs: 'tpJobSearchController',
+          data: {
+              permissions: tpPermissions
+          }
       })
       .when(tp_url('/calendar'), {
-        templateUrl: 'views/tp/calendar.html',
-        controller: 'TPCalendarCtrl',
-        controllerAs: 'tpCalendarController',
-        data: {
-          permissions: tpPermissions
-        }
+          templateUrl: 'views/tp/calendar.html',
+          controller: 'TPCalendarCtrl',
+          controllerAs: 'tpCalendarController',
+          data: {
+              permissions: tpPermissions
+          }
       })
       .when(tp_url('/customers'), {
-        templateUrl: 'views/tp/customers.html',
-        controller: 'TPCustomersCtrl',
-        controllerAs: 'tpCustomerController',
-        data: {
-          permissions: tpPermissions
-        }
+          templateUrl: 'views/tp/customers.html',
+          controller: 'TPCustomersCtrl',
+          controllerAs: 'tpCustomerController',
+          data: {
+              permissions: tpPermissions
+          }
       })
       .when(tp_url('/equipment'), {
-        templateUrl: 'views/equipment.html',
-        controller: 'EquipmentCtrl',
-        controllerAs: 'equipment',
-        data: {
-          permissions: tpPermissions
-        }
+          templateUrl: 'views/equipment.html',
+          controller: 'EquipmentCtrl',
+          controllerAs: 'equipment',
+          data: {
+              permissions: tpPermissions
+          }
       })
       .when(tp_url('/about'), {
-        templateUrl: 'views/tp/about.html',
+          templateUrl: 'views/tp/about.html',
       });
-  });
+});
 
+function IsMobileScreen() {
+    var width = $(window).width();
+    var height = $(window).height();
+
+    // Do a custom code here
+    if (width <= 480) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
